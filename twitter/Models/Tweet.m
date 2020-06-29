@@ -53,6 +53,7 @@
         Tweet *tweet = [[Tweet alloc] initWithDictionary:dictionary];
         [tweets addObject:tweet];
     }
+    
     return tweets;
 }
 
