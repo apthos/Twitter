@@ -15,6 +15,7 @@
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *tweets;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UITableView *tweetsTableView;
 
 @end
@@ -27,21 +28,14 @@
     self.tweetsTableView.dataSource = self;
     self.tweetsTableView.delegate = self;
     
-    // Get timeline
-    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
-        if (tweets) {
-            self.tweets = (NSMutableArray *) tweets;
-            [self.tweetsTableView reloadData];
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
-        } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
-            
-        }
-    }];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchTimeline) forControlEvents:UIControlEventValueChanged];
+    [self.tweetsTableView insertSubview:self.refreshControl atIndex:0];
     
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [self fetchTimeline];
     
 }
 
@@ -74,6 +68,22 @@
     [cell.profileView setImageWithURL:profileImageURL];
     
     return cell;
+}
+
+- (void)fetchTimeline {
+    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
+        if (tweets) {
+            self.tweets = (NSMutableArray *) tweets;
+            [self.tweetsTableView reloadData];
+            
+        } else {
+            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+            
+        }
+        [self.refreshControl endRefreshing];
+        
+    }];
+    
 }
 
 /*
