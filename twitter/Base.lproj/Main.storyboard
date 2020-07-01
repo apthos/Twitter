@@ -53,7 +53,7 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
-        <!--Home Timeline-->
+        <!--Home-->
         <scene sceneID="1Tv-nE-1AW">
             <objects>
                 <viewController storyboardIdentifier="TimelineViewController" id="Lbl-k5-U4i" customClass="TimelineViewController" sceneMemberID="viewController">
@@ -185,6 +185,7 @@
                                             <outlet property="retweetLabel" destination="IGN-Sw-Fwp" id="bQb-vx-p6K"/>
                                             <outlet property="screenNameLabel" destination="vjs-TY-5Wx" id="FKx-b0-Bx8"/>
                                             <outlet property="tweetTextLabel" destination="0RV-Uh-SXJ" id="0XY-16-KLO"/>
+                                            <segue destination="e5d-97-Mko" kind="show" id="H5l-Re-94u"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -199,7 +200,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ugE-Ul-H9I"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE">
+                    <navigationItem key="navigationItem" title="Home" id="MOc-fV-EZE">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="21j-nc-bAq">
                             <connections>
                                 <action selector="onLogoutPress:" destination="Lbl-k5-U4i" id="c8D-YB-zhD"/>
@@ -295,6 +296,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbc-Uf-5Qa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2542" y="37"/>
+        </scene>
+        <!--Tweet View Controller-->
+        <scene sceneID="cOU-gv-a9H">
+            <objects>
+                <viewController id="e5d-97-Mko" customClass="TweetViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c74-FB-PCb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Qhe-xE-lBW"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Y27-Vr-k9q"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="65N-JI-QeG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1659" y="760"/>
         </scene>
     </scenes>
     <resources>
