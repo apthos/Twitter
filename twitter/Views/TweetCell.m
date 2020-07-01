@@ -54,12 +54,12 @@
 - (void)updateWithTweet:(Tweet *)tweet {
     self.tweet = tweet;
     
-    self.screenNameLabel.text = self.tweet.user.screenName;
+    self.screenNameLabel.text = [NSString stringWithFormat:(@"@%@"), self.tweet.user.screenName];
     self.nameLabel.text = self.tweet.user.name;
     self.dateLabel.text = self.tweet.createdAtString;
     self.tweetTextLabel.text = self.tweet.text;
-    self.retweetsLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
-    self.favoritesLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+    self.favoriteLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+    self.retweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
     
     [self.favoriteButton setSelected:self.tweet.favorited];
     [self.retweetButton setSelected:self.tweet.retweeted];
