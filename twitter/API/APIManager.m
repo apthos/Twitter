@@ -10,8 +10,8 @@
 #import "Tweet.h"
 
 static NSString * const baseURLString = @"https://api.twitter.com";
-static NSString * const consumerKey = // Enter your consumer key here
-static NSString * const consumerSecret = // Enter your consumer secret here
+static NSString * const consumerKey = @"xIXjqTW5lFNBffTURZoYolZ50";
+static NSString * const consumerSecret = @"DbbeXTzp35UhqJcZWz4IxgOCEMmxLImlQ5KeEoFz4ZVwADdQTT";
 
 @interface APIManager()
 
@@ -53,7 +53,7 @@ static NSString * const consumerSecret = // Enter your consumer secret here
     [self GET:@"1.1/statuses/home_timeline.json"
    parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
        
-       NSMutableArray *tweets = [Tweet tweetsWithArray:tweetDictionaries];
+        NSMutableArray *tweets = [Tweet tweetsWithArray:tweetDictionaries];
 
        completion(tweets, nil);
        
@@ -88,8 +88,7 @@ static NSString * const consumerSecret = // Enter your consumer secret here
 }
 
 - (void)retweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion {
-    NSString *idString = [tweet.idString stringByAppendingString:@".json"];
-    NSString *urlString = [@"1.1/statuses/retweet/" stringByAppendingString:idString];
+    NSString *urlString = [NSString stringWithFormat:(@"1.1/statuses/retweet/%@.json"), tweet.idString];
     NSDictionary *parameters = @{@"Name": tweet.user.name, @"id": tweet.idString};
     [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
         Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
