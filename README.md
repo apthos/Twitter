@@ -75,14 +75,14 @@ Here's a walkthrough of implemented user stories:
 <img src='https://i.imgur.com/ek6sSqG.gif' title='Compose' width='' alt='Compose' />
 
 8. Auto Layout
-iPhone SE
+- iPhone SE
 <img src='https://i.imgur.com/aNhSYpc.gif' title='iPhone SE' width='' alt='SE' />
 
-iPhone 8
-<img src='https://i.imgur.com/B0ahlb8.gif' title='iPhone 8' width='' alt='8' />
+- Phone 8
+<img src='https://i.imgur.com/elVTM8f.gif' title='iPhone 8' width='' alt='8' />
 
-iPhone 8 Plus
-<img src='https://i.imgur.com/qM560HR.gif' title='iPhone 8 Plus' width='' alt='8Plus' />
+- iPhone 8 Plus
+<img src='https://i.imgur.com/fwSZFdJ.gif' title='iPhone 8 Plus' width='' alt='8Plus' />
 
 9. Tweet Details View
 <img src='https://i.imgur.com/lDsmqxg.gif' title='Details' width='' alt='Details' />
